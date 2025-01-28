@@ -1,5 +1,5 @@
 import {
-  version,
+  apiVersion,
   ClientToServerEvents,
   ServerToClientEvents,
   Status,
@@ -18,7 +18,7 @@ export class BlueBerryServer extends EventEmitter {
   public sockets = new Map<ReleaseChannel, string>()
   public constructor(private _port: number) {
     super()
-    console.log(`[BlueBerryAPI server] version: ${version}`)
+    console.log(`[BlueBerryAPI server] version: ${apiVersion}`)
 
     this._app.use(express.json())
 
