@@ -14,7 +14,10 @@ import { Socket, Server as SocketIOServer } from 'socket.io'
 export class BlueBerryServer extends EventEmitter {
   private _app = express()
   private _httpServer = createServer(this._app)
-  private _ioServer = new SocketIOServer(this._httpServer)
+  private _ioServer = new SocketIOServer(this._httpServer, {
+    pingInterval: 60_000,
+    pingTimeout: 10_000,
+  })
   public sockets = new Map<ReleaseChannel, string>()
   public constructor(private _port: number) {
     super()
