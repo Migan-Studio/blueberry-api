@@ -1,4 +1,3 @@
-export const apiVersion = '1.0.0-hydrogen.e250127a.api'
+export const apiVersion = '1.0.0-hydrogen.e250129a.api-server'
 export * from './servers'
-export * from './clients'
 export * from './types'
