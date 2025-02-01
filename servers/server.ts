@@ -6,6 +6,7 @@ import {
   Maintenance,
 } from '..'
 import { ReleaseChannel } from '../../utils'
+import { userRouter } from '../routes'
 import EventEmitter from 'events'
 import express from 'express'
 import { createServer } from 'http'
@@ -24,6 +25,8 @@ export class BlueBerryServer extends EventEmitter {
     console.log(`[BlueBerryAPI server] version: ${apiVersion}`)
 
     this._app.use(express.json())
+
+    this._app.use('/users', userRouter)
 
     this._app.get('/', (_, res) => {
       res.json({
